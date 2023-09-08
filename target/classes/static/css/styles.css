@@ -1,0 +1,14 @@
+/*For Listings*/
+.listing {
+    border: 1px solid #0c0c0c;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+/*For Images*/
+.image-gallery {
+    display: flex;           /* Use flex display to arrange images in a row */
+    flex-direction: row;
+    overflow-x: auto;        /* Enable horizontal scrolling */
+    white-space: nowrap;     /* Prevent line breaks between images */
+}

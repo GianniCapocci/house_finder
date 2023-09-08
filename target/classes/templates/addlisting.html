@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Listing</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" th:fragment="header">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/listings}">Registration and Login System</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/logout}">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" th:href="@{/users}">Users</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<br />
+<br />
+<br />
+
+
+<h2>Create Listing</h2>
+<form th:action="@{/listings/add-listing}" th:object="${listing}" method="post" enctype="multipart/form-data">
+    <label for="givenStreet">Street:</label>
+    <input type="text" id="givenStreet" name="givenStreet" th:field="*{street}" required>
+    <br />
+
+    <label for="givenArea" style="margin-top: 10px;">Area:</label>
+    <select id="givenArea" name="givenArea" th:field="*{area}" required>
+        <option value="">Select an Area</option>
+        <option value="Kifisia">Kifisia</option>
+        <option value="Marousi">Marousi</option>
+        <option value="Chalandri">Chalandri</option>
+        <option value="Kalithea">Kalithea</option>
+        <option value="Tavros">Tavros</option>
+    </select>
+    <br />
+
+    <label for="givenAreaCode" style="margin-top: 10px;">Area Code:</label>
+    <input type="number" id="givenAreaCode" name="givenAreaCode" th:field="*{areaCode}" required>
+    <br />
+
+    <label for="givenPrice" style="margin-top: 10px;">Price:</label>
+    <input type="number" id="givenPrice" name="givenPrice" th:field="*{price}" required>
+    <br />
+
+    <label for="givenSquareMeters" style="margin-top: 10px;">Square Meters:</label>
+    <input type="number" id="givenSquareMeters" name="givenSquareMeters" th:field="*{squareMeters}" required>
+    <br />
+
+    <label for="givenBuiltDate" style="margin-top: 10px;">Built Date:</label>
+    <input type="date" id="givenBuiltDate" name="givenBuiltDate" th:field="*{builtDate}" required>
+    <br />
+
+    <label for="givenFloor" style="margin-top: 10px;">Floor:</label>
+    <input type="number" id="givenFloor" name="givenFloor" th:field="*{floor}" required>
+    <br />
+
+    <label for="files" style="margin-top: 10px;">Photos:</label>
+    <input type="file" id="files" name="files" accept="image/*" multiple>
+    <br />
+
+    <button type="submit" style="margin-top: 10px;">Create Listing</button>
+</form>
+
+<form th:action="@{/listings}" method="get">
+    <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Go Back</button>
+</form>
+
+</body>
+</html>
