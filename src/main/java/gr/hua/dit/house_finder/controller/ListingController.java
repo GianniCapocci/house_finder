@@ -89,8 +89,7 @@ public class ListingController {
         if(files.get(0).getSize() > 0) {
             for (MultipartFile imageFile : files) {
                 String filename = photoService.savePhoto(imageFile);
-                byte[] imageData = imageFile.getBytes();
-                Photo photo = new Photo(imageData, savedListing, filename);
+                Photo photo = new Photo(savedListing, filename);
                 savedListing.getPhotos().add(photo);
             }
         }

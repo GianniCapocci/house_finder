@@ -18,16 +18,11 @@ public class Photo {
 
     private String filename;
 
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private byte[] image;
-
     @ManyToOne
     @JoinColumn(name = "listing_id")
     private Listing listing;
 
-    public Photo(byte[] image, Listing listing, String filename) {
-        this.image = image;
+    public Photo(Listing listing, String filename) {
         this.listing = listing;
         this.filename = filename;
     }
